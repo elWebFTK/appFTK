@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+</head>
+<style>
+    .col-1 {
+        padding: 0;
+    }
+</style>
+
+<body>
+
+    <!--Navbar-->
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <!--Fin navbar-->
+    <div class="todo_marca">
+
+        <div class="row columnas_add">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <div>
+                    <div>
+                        <div class="container botomnes">
+                            <div class="row" style="padding-left: 10vw">
+                                <div class="col-6 inputs">
+                                    <h1>SUCURSALES</h1>
+                                </div>
+                                <div class="col-6">
+                                    <a href="/add_sucursal">
+                                        <button>AGREGAR SUCURSAL</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div align="center">
+                        <div class="container">
+                            <div class="row" style="padding-left: 10vw">
+                                <div class="col-3 inputs" style="text-align:left;">
+                                    <input readonly type="text" name="Nombre" placeholder="Sucursal"
+                                        value="<%= datars[0].Nombre %>">
+                                    <br>
+                                    <label>No. Cabinas: </label>
+                                    <input style="width: 2vw;" readonly type="text" name="idCabina"
+                                        value="<%= datars[0].idCabina %>">
+                                </div>
+                                <div class="col-1">
+                                    <a id="myBtn">Detalles</a>
+                                </div>
+                                <div class="col-1">
+                                    <a href="/add_sucursal">Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <!-- The Modal -->
+                    <div style="display:none" id="myModal" class="modal_marca">
+
+                        <!-- Modal content -->
+                        <div align="left" class="modal_marca-content" id="modal_cliente">
+                            <span class="close">&times;</span>
+                            <br><br>
+                            <div class="eldisquemodal">
+                                <p><b>Marca</b></p>
+                                <p>Sucursal</p>
+                                <p>Dirección</p>
+                                <p>55 0000 0000</p>
+                                <p>Encargado</p>
+                                <p>Horario:</p>
+                                <p>Domingo 00:00am - 00:00pm</p>
+                                <p>Lunes 00:00am - 00:00pm</p>
+                                <p>Martes 00:00am - 00:00pm</p>
+                                <p>Miércoles 00:00am - 00:00pm</p>
+                                <p>Jueves 00:00am - 00:00pm</p>
+                                <p>Viernes 00:00am - 00:00pm</p>
+                                <p>Sábado 00:00am - 00:00pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/modal_suc.js"></script>
+
+</html>

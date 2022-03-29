@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+</head>
+<!-- Menú para administradores. 
+  La visualización, es completa para este tipo de rol. -->
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br>
+  <div align="center" class="botomnes">
+    <br>
+    <h1>Configuración</h1>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <h3>VISTAS</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td><a href="/calendario"><button>Calendario</button></a></td>
+              </tr>
+              <tr>
+                <td><a href="/clientescc"><button>Clientes</button></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6">
+          <h3>ALTAS</h3>
+          <table align="center">
+            <tbody>
+              <tr>
+                <td>
+                  <a href="/marcas">
+                    <button> Marca</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="/sucursales">
+                    <button>Sucursal</button>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/tecnologias">
+                    <button>Tecnología</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="/add_cabina">
+                    <button>Cabina</button>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/usuarios">
+                    <button>Usuarios</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="/rol_user">
+                    <button>Rol (Usuario)</button>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/horario_especialista">
+                    <button>Horarios</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="/servicios">
+                    <button>Servicio/Tratamiento</button>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

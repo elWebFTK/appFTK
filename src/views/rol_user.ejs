@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <div class="todo_marca">
+        <div class="row">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <br>
+                <div class="bckgc" style="padding-left: 5vw">
+                    <br>
+                    <div class="row" style="padding-left: 10vw">
+                        <div class="col-6 inputs">
+                            <h1>Rol Usuario</h1>
+                        </div>
+                        <div class="col-6">
+                            <a href="/add_rol">
+                                <button class="buttoncito">Asignar Rol</button>
+                            </a>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr class="magia">
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Puesto</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="magia inputs">
+                            <% if (data) { %>
+                                <% for(var i=0; i < data.length; i++) { %>
+                                    <tr>
+                                        <td align="center">
+                                            <%= data[i].idUsuarios %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].Nombre %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].Tipo %>
+                                        </td>
+                                        <td align="center">
+                                            <a href="/rol_user/update/<%= data[i].idUsuarios %>" style="color: blue"
+                                                data-toggle="modal" data-target="#editar">Editar</a>
+                                        </td>
+                                        <td align="center">
+                                            <a style="color: blue" data-toggle="modal"
+                                                data-target="#eliminar">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <!--Delete modal window-->
+                                    <div class="modal" id="eliminar">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Eliminar Rol</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>¿Realmente deseas eliminar este Rol?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="delete/<%= data[i].idUsuario %>"
+                                                        class="btn btn-danger">Eliminar</a>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End of delete modal window-->
+                                    <% } %>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

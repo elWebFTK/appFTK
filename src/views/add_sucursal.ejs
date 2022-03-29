@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+</head>
+<style>
+    .comoquieras img {
+        width: 100%;
+        height: 150vh;
+    }
+</style>
+
+<body>
+
+    <!--Navbar-->
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <!--Fin navbar-->
+    <div class="todo_marca">
+        <div class="row columnas_add">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <h1 style="padding-left:10vw">SUCURSAL</h1>
+                <br>
+                <div align="center" class="add_form">
+                    <form action="/add_sucursal/add" method="post">
+                        <select name="Sucursal_idSucursal" id="marcas">
+                            <option class="colorcito" disabled selected>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seleccione marca
+                            </option>
+                            <% if (datam) { %>
+                                <% for(var i=0; i < datam.length; i++) { %>
+                                  <option value="<%= datam[i].idMarca %>">
+                                    <%= datam[i].Nombre %>
+                                  </option>
+                                  <% } %>
+                                    <% } %>
+                        </select>
+                        <br><br>
+                        <input type="text" placeholder="Nombre">
+                    <br><br>
+                    <input type="text" placeholder="Dirección">
+                    <br><br>
+                    <input type="text" placeholder="Teléfono">
+                    <br><br>
+                    <input type="text" placeholder="Encargado">
+                    <br><br>
+                        <div style="margin-left:8vw" class="container">
+                            <div class="row   colorcito">
+                                <div class="col-1 ">
+                                    Cerrado
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                                <div class="col-3">
+                                    Apertura
+                                </div>
+                                <div class="col-3">
+                                    Cierre
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="7" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Domingo
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="1" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Lunes
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="2" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Martes
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="3" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Miércoles
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="4" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Jueves
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="5" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Viernes
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row ">
+                                <div class="col-1 ">
+                                    <input value="6" id="check_add" name="daysOfWeek" checked type="checkbox">
+                                </div>
+                                <div class="col-2">
+                                    Sábado
+                                </div>
+                                <div class="col-3">
+                                    <input name="startTime" id="clock" type="time">
+                                </div>
+                                <div class="col-3">
+                                    <input name="endTime" id="clock" type="time">
+                                </div>
+                            </div>
+                            <br>
+                            <div align="left">
+                                <a>Agregar fecha especial</a>
+                            </div>
+                        </div>
+
+                        <div align="left" style="padding-left:8.5vw" class="botomnes">
+                            <a href="/tecnologias">
+                                <button type="submit" style="margin-right:0.5vw">GUARDAR</button>
+                            </a>
+                            <a href="/sucursales">
+                                <button type="button">CANCELAR</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

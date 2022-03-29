@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+
+</head>
+
+<body>
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <div class="todo_marca">
+        <div class="row">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <div style="padding-left:5vw;">
+                    <h2>ASIGNAR ROL</h2>
+                    <i><p>Asigne un rol a cada usuario.</p>
+                    <p><b>IMPORTANTE:</b> ID de Usuario solo puede estar asignado a un rol por lo que no podrá asignarse a más
+                        de
+                        uno por usuario.</p></i>
+                    <form action="/add_rol/add" method="post">
+                        <div clas="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="usuarios">Seleccione usuario de la lista:</label><br>
+                                    <input list="usuarios" name="Usuarios_idUsuarios" type="search" required>
+                                    <datalist id="usuarios">
+                                        <!--% console.log(JSON.stringify(datars)); %-->
+                                        <% if (data) { %>
+                                            <% for(var i=0; i < data.length; i++) { %>
+                                                <option value="<%= data[i].idUsuarios %>">
+                                                    <%= data[i].Nombre %>
+                                                </option>
+                                                <% } %>
+                                                    <% } %>
+                                    </datalist>
+                                </div>
+                                <div class="col-3">
+                                    <label>Seleccione rol:</label><br>
+                                    <select name="Rol_idRol" required>
+                                        <option selected disabled></option>
+                                        <!--% console.log(JSON.stringify(datars)); %-->
+                                        <% if (datar) { %>
+                                            <% for(var i=0; i < datar.length; i++) { %>
+                                                <option value="<%= datar[i].idRol %>">
+                                                    <%= datar[i].Tipo %>
+                                                </option>
+                                                <% } %>
+                                                    <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <button onclick="myfunction()" class="buttoncito" type="submit">Guardar</button>
+                                <a href="/rol_user">
+                                    <button class="buttoncito" type="button">Cancelar</button>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

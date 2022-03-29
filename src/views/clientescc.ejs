@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br />
+  <div>
+    <button onclick="back();" class="btnMenu">Menú</button>
+  </div>
+  <br />
+  <div class="bckgc">
+    <br />
+    <table>
+      <tbody>
+        <tr>
+          <td width="950px">
+            <h2>Nombre Empleado</h2>
+          </td>
+          <td>
+            <a href="/rCliente">
+              <button type="submit" class="buttoncito">Nuevo Registro</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table style="width:100%">
+      <thead>
+        <tr class="magia">
+          <th>Nombre</th>
+          <th>Asesor</th>
+          <th>Sucursal</th>
+          <th>Cumpleaños<br><i>(Día/Mes/Año)</i></th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Fecha&nbsp;Registro</th>
+          <th>Notas</th>
+        </tr>
+      </thead>
+
+      <tbody class="magia inputs">
+        <% if (data) { %>
+          <% for(var i=0; i < data.length; i++) { %>
+            <tr>
+              <td><%= data[i].Nombre %> <%= data[i].Apellidos %></td>
+              <td><%= data[i].Asesor %></td>
+              <td><%= data[i].Sucursal %></td>
+              <td align="center"><%= data[i].Dia %> / <%= data[i].Mes %> / <%= data[i].Año %></td>
+              <td><%= data[i].Telefono %></td>
+              <td><%= data[i].Email %></td>
+              <td><%= data[i].Fecha_registro %></td>
+              <td><%= data[i].Notas %></td>
+            </tr>
+            <% } %>
+              <% } %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+
+  <script src="/js/back.js"></script>
+
+</body>
+
+</html>

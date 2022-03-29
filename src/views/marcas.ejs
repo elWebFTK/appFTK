@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    .col-1 {
+        padding: 0;
+    }
+</style>
+
+<body>
+
+    <!--Navbar-->
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <!--Fin navbar-->
+    <div class="todo_marca">
+        <div class="row columnas_add">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <div>
+                    <div>
+                        <div class="container botomnes">
+                            <div class="row" style="padding-left: 10vw">
+                                <div class="col-6 inputs">
+                                    <h1>DETALLES</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div align="center">
+                        <div class="container">
+                            <div class="row" style="padding-left: 10vw">
+                                <div class="col-3 inputs" style="text-align:left;">
+                                    <input readonly type="text" name="Nombre" value="<%= data[0].Nombre_m %>">
+                                    <br>
+                                    <label>No. Sucursales:</label>
+                                    <input style="width: 2vw;" readonly type="text" value="<%= datas[0].idSucursal %>">
+                                </div>
+                                <div class="col-1">
+                                    <a id="myBtn">Detalles</a>
+                                </div>
+                                <div class="col-1">
+                                    <a href="/update/<%= data[0].idMarca %>" data-toggle="modal"
+                                        data-target="#editar">Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                    <!--Update modal window-->
+                    <div class="modal" id="editar">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">Editar marca</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/marcas/update/<%= data[0].idMarca %>" method="POST">
+                                        <div class="form-group">
+                                            <label type="text">Nombre: </label>
+                                            <input type="text" name="Nombre_m" value="<%= data[0].Nombre_m %>"
+                                                placeholder="Nombre marca" class="form-control" autofocus>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label type="text">Teléfono: </label>
+                                            <input type="text" name="Telefono" value="<%= data[0].Telefono %>"
+                                                placeholder="Teléfono" class="form-control">
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label type="text">Correo: </label>
+                                            <input type="text" name="Correo" value="<%= data[0].Correo %>"
+                                                placeholder="Correo" class="form-control">
+                                        </div>
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-info">Guardar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of edit modal window-->
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal_marca">
+
+                        <!-- Modal content -->
+                        <div align="left" class="modal_marca-content inputs" id="modal_cliente">
+                            <span class="close">&times;</span>
+                            <br><br>
+                            <div class="eldisquemodal">
+                                <input readonly type="text" value="<%= data[0].Nombre_m %>">
+                                <hr>
+                                <p><i>Teléfono:</i></p>
+                                <input readonly type="text" value="<%= data[0].Telefono %>">
+                                <hr>
+                                <p><i>Sucursales:</i></p>
+                                <% if (datas) { %>
+                                    <% for(var i=0; i < datas.length; i++) { %>
+                                        <input readonly type="text" value="<%= datas[i].Direccion %>">
+                                        <br><br>
+                                        <% } %>
+                                            <% } %>
+                                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/modal_marca.js"></script>
+
+</html>

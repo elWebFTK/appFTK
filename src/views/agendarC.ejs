@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+
+</head>
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br />
+  <div>
+    <button onclick="back();" class="btnMenu">Menú</button>
+  </div>
+  <br />
+  <h1 align="center">Agendar</h1>
+  <br />
+  <div align="center">
+    <form action="agendarC/consult/" method="get">
+      <input list="nombres" name="Telefono" type="search" id="telefonito" required>
+      <datalist id="nombres">
+        <!--% console.log(JSON.stringify(datars)); %-->
+        <% if (data) { %>
+          <% for(var i=0; i < data.length; i++) { %>
+            <option value="<%= data[i].Telefono %>">
+              <%= data[i].Nombre %>
+            </option>
+            <% } %>
+              <% } %>
+      </datalist>
+      <button class="buttong" type="submit">Buscar</button>
+    </form>
+    <br><br>
+    <div class="inputs">
+      <div>
+        <label type="text">ID Cliente: </label>
+        <input type="text" name="idCliente" value="<%= data.idCliente %>" readonly>
+      </div>
+      <br>
+      <div>
+        <label type="text">Nombre: </label>
+        <input type="text" name="Nombre" value="<%= data.Nombre %>" id="Nombre" readonly>
+      </div>
+      <br>
+      <div>
+        <label type="text">Apellidos: </label>
+        <input type="text" name="Apellidos" value="<%= data.Apellidos %>" id="Apellidos" readonly>
+      </div>
+      <br>
+      <div>
+        <label type="text">Teléfono: </label>
+        <input type="text" name="Telefono" value="<%= data.Telefono %>" readonly>
+      </div>
+      <br>
+      <div>
+        <label type="text">Correo: </label>
+        <input type="text" name="Email" value="<%= data.Email %>" readonly>
+      </div>
+      <br>
+      <div style="margin-right: 6vw">
+        <label type="text">Cumpleaños: </label>
+        <input id="dia" type="text" name="Dia" value="<%= data.Dia %>" readonly>/<input id="mes" type="text" name="Mes"
+          value="<%= data.Mes %>" readonly>/<input id="año" type="text" name="Año" value="<%= data.Año %>" readonly>
+      </div>
+      <br>
+      <div>
+        <label type="text">Asesor: </label>
+        <input type="text" name="Asesor" value="<%= data.Asesor %>" readonly>
+      </div>
+      <br>
+      <hr style="width: 25vw">
+      <!--div>
+        <label type="text">Fecha Registro: </label>
+        <input type="text" name="Fecha_registro" value="<%= data.Fecha_registro %>" readonly>
+      </div-->
+      <br>
+    </div>
+    <table class="magia inputs">
+      <tbody>
+        <tr>
+          <td id="teodioaquamugre">Agendar</td>
+          <td>Folio Membresia</td>
+          <td>Marca</td>
+          <td>Fecha Compra</td>
+          <td>Tratamiento</td>
+          <td>Ticket</td>
+          <td>Notas</td>
+        </tr>
+        <tr>
+          <td id="teodioaquamugre"><input style="width:3.5vw" name="citas" class="chckbox" type="radio"></td>
+          <td><%= data.Folio_membresia %></td>
+          <td>
+            <input style="width:0.5vw" type="text" name="Nombre_m" value="<%= data.idMarca %>" id="Marca" readonly>
+            . <%= data.Nombre_m %>
+          </td>
+          <td><%= data.Fecha_compra %></td>
+          <td>
+            <div class="tooltip input_tooltip"> <input style="color:black" type="text" name="Nombre_t"
+                value="<%= data.Nombre_t%>" id="Tratamiento" readonly>/<%= data.Nombre_t %>
+              
+            </div>
+            <br>
+          </td>
+          <td><input type="text" name="Ticket" value="<%= data.Ticket %>" readonly></td>
+          <td><%= data.Notas %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br><br>
+    <label><b>Sucursal: </b></label>
+    <br />
+    <select name="Sucursal_idSucursal" type="text" id="Sucursal" required>
+      <!--% console.log(JSON.stringify(datars)); %-->
+      <% if (datas) { %>
+        <% for(var i=0; i < datas.length; i++) { %>
+          <option value="<%= datas[i].idSucursal %>">
+            <%= datas[i].Nombre_s %>
+          </option>
+          <% } %>
+            <% } %>
+    </select>
+    <br><br>
+    <label for="especialista"><b>Especialista: </b></label><br />
+    <input type="text" name="title" id="Especialista">
+    <br><br>
+    <label for="fechacita"><b>Fecha: </b></label><br />
+    <input style="width:17vw" type="datetime-local" name="Fecha" id="Fecha">
+    <br><br>
+    <label for="Cabina"><b>Cabina: </b></label><br>
+    <select id="Cabina" name="resourceId" type="text" required>
+      <!--% console.log(JSON.stringify(datars)); %-->
+      <% if (datac) { %>
+        <% for(var i=0; i < datac.length; i++) { %>
+          <option value="<%= datac[i].idCabina %>">
+            <%= datac[i].Nombre %>
+          </option>
+          <% } %>
+            <% } %>
+    </select>
+    <br><br>
+    <label for="notas"><b>Notas:</b></label><br>
+    <input type="textarea" id="Notas" name="notas">
+    <br><br>
+    <button class="buttong"  id="myBtn" type="button" data-target="#modal_cliente">Agendar</button>
+    <br><br>
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <form action="/agendarC/save" method="post">
+    <!-- Modal content -->
+    <div align="center" class="modal-content inputs" id="modal_cliente">
+      <span class="close">&times;</span>
+      <p id="modal-cliente"></p>
+      <button type="submit" class="buttonis">Guardar</button>
+      <button type="button" id="cancel" class="buttonis">Cancelar</button>
+    </div>
+    
+  </form>
+  </div>
+  
+  <script type="text/javascript">
+    $("#myBtn").click(function () {
+      var nombre = $("#Nombre").val();
+      var apellidos = $("#Apellidos").val();
+      var tratamiento = $("#Tratamiento").val();
+      var marca = $("#Marca").val();
+      var sucursal = $("#Sucursal").val();
+      var especialista = $("#Especialista").val();
+      var cabina = $("#Cabina").val();
+      var fecha = $("#Fecha").val();
+      var notas = $("#Notas").val();
+
+      var str = "<h2>VERIFICACIÓN</h2> " + '<br>'
+        + '<b>Nombre:</b>' + ' ' + '<input type="text" name="Nombre_c" value = "' + nombre + '" />' + '<br><br>'
+        + '<b>Apellidos:</b>' + ' ' + '<input type="text" name="Apellidos" value = "' + apellidos + '" />' + '<br><br>'
+        + '<b>Tratamiento:</b>' + ' ' + '<input type="text" name="Tratamiento" value = "' + tratamiento + '" />' + '<br><br>'
+        + '<b>Marca:</b>' + ' ' + '<input type="text" name="Marca_idMarca" value = "' + marca + '" />' + '<br><br>'
+        + '<b>Sucursal:</b>' + ' ' + '<input type="text" name="Sucursal_idSucursal" value = "' + sucursal + '" />' + '<br><br>'
+        + '<b>Especialista:</b>' + ' ' + '<input type="text" name="title" value = "' + especialista + '" />' + '<br><br>'
+        + '<b>Cabina:</b>' + ' ' + '<input type="text" name="resourceId" value = "' + cabina + '" />' + '<br><br>'
+        + '<b>Fecha:</b>' + ' ' + '<input type="text" name="start" value = "' + fecha + '" />' + '<br><br>'
+        + '<b>Notas:</b>' + ' ' + '<input type="text" name="Notas" value = "' + notas + '" />' + '<br><br>'
+      $("#modal-cliente").html(str);
+    });
+  </script>
+  
+  <script src="/js/modal.js"></script>
+  <script src="/js/back.js"></script>
+
+</body>
+
+</html>

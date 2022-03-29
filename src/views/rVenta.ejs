@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br />
+  <div>
+    <button onclick="back();" class="btnMenu">Menú</button>
+  </div>
+
+  <h1 align="center">Registrar Membresía</h1>
+  <br>
+  <!-- Inicia Formulario Marca -->
+    <form action="/rVenta/addm" method="post">
+      <div align="center">
+        <label for="id_Cliente"><b>Cliente:</b></label><br>
+        <input list="nombres" name="Cliente_idCliente" type="search" id="id_Cliente" required>
+        <datalist id="nombres">
+          <!--% console.log(JSON.stringify(datars)); %-->
+          <% if (datac) { %>
+            <% for(var i=0; i < datac.length; i++) { %>
+              <option value="<%= datac[i].idCliente %>">
+                <%= datac[i].Nombre %> 
+                <%= datac[i].Apellidos %> 
+                <%= datac[i].Telefono %>
+              </option>
+              <% } %>
+                <% } %>
+            </datalist>
+        <!--input size="30" type="search" name="Cliente_idCliente" id="id_Cliente" placeholder="ID Cliente" required-->
+        <br><br>
+        <label><b>Marca: </b></label>
+        <br />
+        <select name="Marca_idMarca" id="Marca">
+          <% if (datam) { %>
+            <% for(var i=0; i < datam.length; i++) { %>
+              <option value="1">
+                <%= datam[i].Nombre %> 
+              </option>
+              <% } %>
+                <% } %>
+        </select>
+        <br>
+        <br>
+        <input type="checkbox" class="chckbox" id="myCheck" onclick="myFunction()">
+        <input disabled size="30" type="text" name="Folio_Membresia" id="Folio_Membresia" placeholder="Folio Membresía">
+        <br><br>
+        <label for="idasesor"><b>Asesor Venta: </b></label><br />
+        <input size="30" type="text" name="Asesor_Venta" id="Asesor" required>
+        <br><br>
+        <label for="fechacompra"><b>Fecha Compra: </b></label><br />
+        <input type="date" name="Fecha_Compra" id="Fecha_Compra" required>
+        <br><br>
+        <div>
+          <div class="tratamientoBox">
+            <label for=""><b>Tratamiento:</b></label><br>
+            <select name="Nombre_T" type="text" id="nombre" required>
+              <option disabled selected>Seleccione un tratamiento</option>
+              <!--% console.log(JSON.stringify(datars)); %-->
+              <% if (datars) { %>
+                <% for(var i=0; i < datars.length; i++) { %>
+                  <option>
+                    <%= datars[i].Nombre %> /
+                      <%= datars[i].Categoria %> /
+                        <%= datars[i].Precio %> /
+                          <%= datars[i].Duracion %>
+                  </option>
+                  <% } %>
+                    <% } %>
+            </select>
+          </div>
+          <br><br>
+          <label><b>Sucursal: </b></label>
+          <br />
+          <select style="width:20vw" name="Sucursal" id="Sucursal">
+            <option disabled selected>Seleccione sucursal</option>
+            <% if (datasuc) { %>
+              <% for(var i=0; i < datasuc.length; i++) { %>
+                <option value="<%= datasuc[i].Nombre %>">
+                  <%= datasuc[i].Direccion %>
+                </option>
+                <% } %>
+                  <% } %>
+          </select>
+          <br><br>
+        </div>
+        <label for="acompañante"><b># Acompañantes:</b></label><br />
+        <input size="30" type="text" name="Acompañantes" id="Acompañantes" required>
+        <br><br>
+        <label for="ticketnova"><b># Ticket: </b></label><br />
+        <input size="30" type="text" name="Ticket" id="Ticket" required>
+        <br><br>
+        <label for="importep"><b>Importe Total Ticket: </b></label><br />
+        <input size="30" type="text" name="Importe_total" id="Importep" required>
+        <br><br>
+        <label for="importet"><b>Importe Total Tratamiento/s: </b></label><br />
+        <input size="30" type="text" name="Importe_t_tratamiento" id="Importet" required>
+        <br><br>
+        <div class="tooltip"><img class="tooltip logos" src="img/descuento_icono.png" alt="plus">
+          <span class="tooltiptext">Reglas&nbsp;Descuento<br>1. <br>2. <br>3. <br>4. </span>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="descuento"><b>Descuento: </b></label><br>
+        <input size="30" type="text" name="Descuento" id="Descuento" required>
+        <br><br>
+
+        <label for="observaciones"><b>Notas: </b></label><br />
+        <input size="30" type="text" name="Notas" id="Observaciones" required>
+
+      </div>
+      <br />
+      <div align="center">
+        <button class="buttong" type="submit">Registrar</button>
+      </div>
+      <br />
+    </form>
+  </div>
+
+  <script src="/js/folio_membresia.js"></script>
+  <script src="/js/back.js"></script>
+
+</body>
+
+</html>

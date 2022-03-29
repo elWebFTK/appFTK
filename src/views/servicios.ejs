@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<style>
+    input {
+        text-align: center;
+    }
+</style>
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br />
+  <div>
+    <button onclick="back();" class="btnMenu">Menú</button>
+  </div>
+  <br />
+  <div class="bckgc">
+    <br />
+    <table>
+      <tbody>
+        <tr>
+          <td width="950px">
+            <h2>Menú servicios</h2>
+          </td>
+          <td>
+            <a href="/add_serv">
+              <button type="submit" class="buttoncito">Nuevo Registro</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table style="width:100%">
+      <thead>
+        <tr class="magia">
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Duración</th>
+        </tr>
+      </thead>
+
+      <tbody class="magia inputs">
+        <% if (data) { %>
+          <% for(var i=0; i < data.length; i++) { %>
+            <tr align="center">
+              <td><%= data[i].Nombre %></td>
+              <td><%= data[i].Categoria %></td>
+              <td><%= data[i].Precio %></td>
+              <td><%= data[i].Duracion %> min.</td>
+            </tr>
+            <% } %>
+              <% } %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+
+  <script src="/js/back.js"></script>
+
+</body>
+
+</html>

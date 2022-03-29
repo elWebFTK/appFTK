@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tec</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <!--Fin navbar-->
+    <div class="todo_marca">
+
+        <div class="row columnas_add">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <div class="container botomnes">
+                    <div class="row" style="margin-left: 7.5vw">
+                        <div class="col-6">
+                            <h1>TECNOLOGÍAS</h1>
+                        </div>
+                    </div>
+                    <div align="center" class="add_form_tec">
+                        <select style="width:20vw" name="" id="" onchange="if(value == '/add_tec'){location = this.value}">
+                            <option disabled selected>Tecnología</option>
+                            <option value="">Tecnología 1</option>
+                            <option value="">Tecnología 2</option>
+                            <option value="">Tecnología 3</option>
+                            <option value="">Tecnología 4</option>
+                            <option value="">Tecnología 5</option>
+                            <option value="">Tecnología 6</option>
+                            <option value="/add_tec" align="center" id="link_tec" style="color: blue;">Agregar nueva tecnología</option>
+                        </select>
+                        <input style="width:7vw" placeholder="Cantidad" type="number" min="0" name="" id="">
+                        <input style="width:10vw" placeholder="Sucursal" type="text">
+                        <a>Eliminar</a>
+                    </div>
+                    <br>
+                    <div>
+                        <a style="margin-left:9vw">Agregar tecnología</a>
+                    </div>
+                    <br>
+                    <div align="left" style="margin-left:7vw" class="botomnes">
+                        <a href="/add_cabina">
+                            <button>GUARDAR</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+    <br>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <a href="/config">
+                        <img style="margin-left:0" class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <div class="col-5">
+                    <h2>USUARIOS</h2>
+                </div>
+                <div class="col-2">
+                    <br>
+                    <a href="/add_user">
+                        <button type="submit" class="buttoncito">Nuevo usuario</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="bckgc">
+            <br>
+
+            <table style="width:100%">
+                <thead>
+                    <tr class="magia">
+                        <th><b>Nombre</b></th>
+                        <th><b>Sucursal</b></th>
+                        <th><b>Usuario</b></th>
+                        <th><b>Contraseña</b></th>
+                        <th><b>Marca</b></th>
+                        <th><b>Teléfono</b></th>
+                        <th></th>
+                        <th></th>
+                        <!--th>Status</th-->
+                    </tr>
+                </thead>
+
+                <tbody class="magia inputs">
+                    <% if (data) { %>
+                        <% for(var i=0; i < data.length; i++) { %>
+                            <tr align="center">
+                                <td>
+                                    <%= data[i].Nombre %>
+                                </td>
+                                <td>
+                                    <%= data[i].Nombre_s %>
+                                </td>
+                                <td>
+                                    <%= data[i].Usuario %>
+                                </td>
+                                <td><input readonly name="Contraseña" value="<%= data[i].Contraseña %>" type="password">
+                                </td>
+                                <td>
+                                    <%= data[i].Nombre_m %>
+                                </td>
+                                <td>
+                                    <%= data[i].Telefono %>
+                                </td>
+                                <td>
+                                    <a href="/usuarios/update/<%= data[i].idUsuarios %>" style="color: blue"
+                                        data-toggle="modal" data-target="#editar">Editar</a>
+                                </td>
+                                <td>
+                                    <a style="color: blue" data-toggle="modal" data-target="#eliminar">Eliminar</a>
+                                </td>
+                                <!--td>Status</td-->
+                            </tr>
+                            <!--Delete modal window-->
+                            <div class="modal" id="eliminar">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Eliminar usuario</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Realmente deseas eliminar este Usuario?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="/usuarios/delete/<%= data[i].idUsuarios %>" class="btn btn-danger">Eliminar</a>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of delete modal window-->
+
+                            <!--Update modal window-->
+                            <div class="modal" id="editar">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">Editar usuario</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/usuarios/update/<%= data[i].idUsuarios %>" method="POST">
+                                                <div class="form-group">
+                                                    <label type="text">Nombre: </label>
+                                                    <input type="text" name="Nombre" value="<%= data[i].Nombre %>"
+                                                        placeholder="Nombre" class="form-control" autofocus>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label type="text">Usuario: </label>
+                                                    <input type="text" name="Usuario" value="<%= data[i].Usuario %>"
+                                                        placeholder="Usuario" class="form-control">
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label type="text">Contraseña: </label>
+                                                    <input id="mypsswd" type="password" name="Contraseña" value="<%= data[i].Contraseña %>"
+                                                        placeholder="Contraseña" class="form-control">
+                                                        <input id="check_add" type="checkbox" onclick="myFunction()">Ver Contraseña
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label type="text">Teléfono: </label>
+                                                    <input type="text" name="Telefono" value="<%= data[i].Telefono %>"
+                                                        placeholder="Telefono" class="form-control">
+                                                </div>
+                                        </div>
+                                        <br>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-info">Guardar</button>
+                                            <button type="button" class="btn btn-danger"
+                                                data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of edit modal window-->
+                            <% } %>
+                                <% } %>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("mypsswd");
+                if (x.type == "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+</body>
+
+</html>

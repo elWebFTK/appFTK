@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body>
+  <!--Navbar-->
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <br>
+  <!--Fin navbar-->
+  <!--Contenido-->
+  <button onclick="back();" class="btnMenu">Menú</button>
+  <div class="titulo">
+    <h1>Registrar Cliente</h1>
+  </div>
+  <br><br>
+  <div id="RS" class="schedule">
+    <div align="center" class="formu">
+      <form action="/rCliente/add" method="post">
+        <label><b>Asesor: </b></label>
+        <br>
+        <select name="Asesor" id="Asesor">
+          <option disabled selected>Seleccione un asesor</option>
+          <% if (rsAs) { %>
+            <% for(var i=0; i < rsAs.length; i++) { %>
+              <option value="<%= rsAs[i].Nombre %>">
+                <%= rsAs[i].Nombre %>
+              </option>
+              <% } %>
+                <% } %>
+        </select>
+        <br>
+        <br>
+        <label><b>Marca: </b></label>
+        <br />
+        <select name="Marca_idMarca" id="Marca">
+          <option selected value="<%= data[0].idMarca %>"><%= data[0].Nombre %></option>
+        </select>
+        <br>
+        <br>
+        <label><b>Sucursal: </b></label>
+        <br />
+        <select style="width:20vw" name="Sucursal" id="Sucursal">
+          <option disabled selected>Seleccione sucursal</option>
+          <% if (datasuc) { %>
+            <% for(var i=0; i < datasuc.length; i++) { %>
+              <option value="<%= datasuc[i].Nombre %>">
+                <%= datasuc[i].Direccion %>
+              </option>
+              <% } %>
+                <% } %>
+        </select>
+        <br>
+        <br>
+
+        <input name="Nombre" id="Nombre" type="text" placeholder="Nombre" required>
+        <br />
+        <br />
+        <input name="Apellidos" id="Apellido" type="text" placeholder="Apellidos" required>
+        <br />
+        <br />
+        <label><b>Cumpleaños: </b></label>
+        <br>
+        <br />
+        <div class="tratamientoBox">
+          <label for="Día">Día:</label>&nbsp;<input name="Dia" type="text" id="Día">
+
+          <label for="Mes">Mes:</label>&nbsp;<input name="Mes" type="text" id="Mes" required>
+
+          <label for="Año">Año:</label>&nbsp;<input name="Año" type="text" id="Año">
+        </div>
+        <br>
+        <br>
+        <input name="Telefono" id="Telefono" type="tel" placeholder="Teléfono 10 digitos" required-pattern="[0-9]{10}">
+        <br>
+        <br>
+        <input name="Email" id="Correo" type="email" placeholder="E-mail" required>
+        <br>
+        <br>
+        <div class="col">
+          <label for="Fecha_registro"><b>Fecha de Registro:</b></label><br>
+          <input type="date" class="form-control" id="Fecha_Registro" name="Fecha_Registro">
+        </div>
+        <br>
+        <input name="Notas" id="Notas" type="textarea" placeholder="Notas" required>
+        <br>
+        <div>
+        </div>
+
+        <br>
+
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div align="center" class="modal-content" id="modal_cliente">
+        <span class="close">&times;</span>
+        <p id="modal-cliente"></p>
+        <button type="submit" class="buttonis">Guardar</button>
+        <button type="button" id="cancel" class="buttonis">Cancelar</button>
+      </div>
+      
+    </form>
+    </div>
+    <div align="center">
+      <button class="buttonis" id="myBtn" data-target="#modal_cliente">Guardar</button>
+    </div>
+    <br><br>
+  </div>
+
+  <script type="text/javascript">
+    $("#myBtn").click(function () {
+      var ases = $("#Asesor").val();
+      var marca = $("#Marca").val();
+      var suc = $("#Sucursal").val();
+      var name = $("#Nombre").val();
+      var apell = $("#Apellido").val();
+      var day = $("#Día").val();
+      var month = $("#Mes").val();
+      var year = $("#Año").val();
+      var tel = $("#Telefono").val();
+      var email = $("#Correo").val();
+      var date = $("#Fecha_Registro").val();
+      var notes = $("#Notas").val();
+
+      var str = "<h2>Verifique información</h2> " + '<br>'
+        + "<b>Asesor: </b>" + ases + '<br><br>'
+        + "<b>Marca: </b>" + marca + '<br><br>'
+        + "<b>Sucursal: </b>" + suc + '<br><br>'
+        + "<b>Nombre: </b>" + name + '<br><br>'
+        + "<b>Apellidos: </b>" + apell + '<br><br>'
+        + "<b>Cumpleaños: </b>" + day + "/" + month + "/" + year + '<br><br>'
+        + "<b>Teléfono: </b>" + tel + '<br><br>'
+        + "<b>Correo: </b>" + email + '<br><br>'
+        + "<b>Fecha de Registro: </b>" + date + '<br><br>'
+        + "<b>Notas: </b>" + notes + '<br>'
+      $("#modal-cliente").html(str);
+    });
+  </script>
+
+  <script src="/js/modal.js"></script>
+  <script src="/js/back.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facialista</title>
+
+  <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link type="text/css" href='/fullcalendar_scheduler/lib/main.css' rel='stylesheet' />
+  <script src='/fullcalendar_scheduler/lib/main.js'></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+  <div>
+    <nav class="color-nav">
+      <a href="/">
+        <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+      </a>
+      <a href="/">
+        <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+      </a>
+    </nav>
+  </div>
+  <!-- Contenido -->
+  <div align="center" class="calendar_buttons">
+    <h1>Facialista</h1>
+    <a href="/fac_sucursal">
+      <button>Sucursal</button>
+    </a>
+  </div>
+  <br>
+
+  <br>
+  <div id='calendar-container'>
+    <div style="margin-top:20vw" id="calendar" data="<%= data %>" datafac="<%= datafac %>"></div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div align="center" class="modal-content inputs">
+      <span class="close">&times;</span>
+      <h2>DETALLES</h2>
+      <p>Cliente: <input type="text" value=" " readonly></p>
+      <p>Facialista: <input type="text" name="title" value="<% datafac.title %>" readonly></p>
+      <p>Tratamiento: <input type="text" readonly></p>
+      <p>Cabina:<input type="text" name="Nombre" value="<%= datafac.Nombre %>" readonly></p>
+      <p>Sucursal: <input type="text" readonly></p>
+      <button id="cancel" class="buttonis">Cancelar</button>
+    </div>
+
+  </div>
+  <script src="/js/calendar_fac.js"></script>
+</body>
+
+
+</html>

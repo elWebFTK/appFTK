@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+
+    <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+</head>
+
+<body>
+    <div>
+        <nav class="color-nav">
+            <a href="/">
+                <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
+            </a>
+            <a href="/">
+                <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </div>
+
+    <div class="todo_marca">
+        <div class="row columnas_add">
+            <div class="col-8">
+                <div>
+                    <a href="/config">
+                        <img class="home_logo" src="/img/home.jpg" alt="home">
+                    </a>
+                </div>
+                <h1 style="padding-left:10vw">SERVICIO</h1>
+                <br>
+                <div align="center" class="add_form">
+                    <form action="/add_serv/add" method="post">
+                        *<input type="text" name="Nombre" placeholder="Nombre" required>
+                        <br><br>
+                        *<input type="text" name="Categoria" placeholder="Categoría" required>
+                        <br><br>
+                        *<input type="text" name="Precio" placeholder="Precio" required>
+                        <br><br>
+                        *<input type="text" name="Duracion" placeholder="Duración" required>
+                        <br><br>
+                        <label for="tecnologia">Tecnología</label><br>
+                        <select name="Tecnologia_idTecnologia" type="text" id="tecnologia">
+                            <option disabled selected></option>
+                            <!--% console.log(JSON.stringify(datars)); %-->
+                            <% if (datas) { %>
+                              <% for(var i=0; i < datas.length; i++) { %>
+                                <option value="<%= datas[i].idTecnologia %>"> <%= datas[i].Nombre %> </option>
+                                <% } %>
+                                  <% } %>
+                          </select>
+                        <br><br>
+                        <label for="cabina">Cabina</label><br>
+                        <select name="Cabina_idCabina" type="text" id="cabina">
+                            <option disabled selected></option>
+                            <!--% console.log(JSON.stringify(datars)); %-->
+                            <% if (datac) { %>
+                              <% for(var i=0; i < datac.length; i++) { %>
+                                <option value="<%= datac[i].idCabina %>"> <%= datac[i].Nombre %> </option>
+                                <% } %>
+                                  <% } %>
+                          </select>
+                        <br><br>
+                        *<select name="Marca_idMarca" type="text" id="sucursal" required>
+                            <% if (datam) { %>
+                              <% for(var i=0; i < datam.length; i++) { %>
+                                <option value="<%= datam[i].idMarca %>"> <%= datam[i].Nombre_m %> </option>
+                                <% } %>
+                                  <% } %>
+                          </select>
+                        <br><br>
+                        <div align="left" style="padding-left:8.5vw" class="botomnes">
+                            <i> * Campos obligatorios </i><br>
+                            <button type="submit" style="margin-right:0.5vw">GUARDAR</button>
+                            <a href="/servicios">
+                                <button type="button">CANCELAR</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="comoquieras">
+                    <img src="/img/color_a.png" alt="grey">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
