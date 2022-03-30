@@ -1,3 +1,11 @@
+/*
+JS para Calendario de Horario Especialista por sucursal.
+
+El calendario tiene su propia documentación para las vistas, funciones, vistas, etc.
+
+Mas información en: https://fullcalendar.io.
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
     var Calendar = FullCalendar.Calendar;
     var calendarEl = document.getElementById('calendar');

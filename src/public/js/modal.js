@@ -1,3 +1,9 @@
+/* 
+Modal personalizado 
+
+Se usa en varias vistas dependiendo la necesidad
+*/
+
 // Get the modal
 var modal = document.getElementById("myModal");
 

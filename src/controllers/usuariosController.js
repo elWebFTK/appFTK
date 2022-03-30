@@ -17,7 +17,7 @@ controller.usuarios = (req, res) => {
 controller.edit = (req, res) => {
     const { idUsuarios } = req.params;
     req.getConnection((err, conn) => {
-        conn.query('SELECT usuarios.*, sucursal.Nombre_s, marca.Nombre_m FROM usuarios INNER JOIN sucursal ON sucursal.idSucursal = usuarios.Sucursal_idSucursal INNER JOIN marca ON marca.idMarca = sucursal.Marca_idMarca WHERE idUsuarios = ?', idUsuarios, (err, rows) => {
+        conn.query('SELECT * FROM usuarios WHERE idUsuarios = ?', idUsuarios, (err, rows) => {
             console.log(rows);
             res.render('usuarios', {
                 

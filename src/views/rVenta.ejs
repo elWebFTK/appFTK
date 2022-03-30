@@ -15,6 +15,7 @@
 
 <body>
   <div>
+    <!-- Navbar --> 
     <nav class="color-nav">
       <a href="/">
         <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -23,6 +24,7 @@
         <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
       </a>
     </nav>
+    <!-- Fin Navbar --> 
   </div>
   <br />
   <div>
@@ -31,13 +33,12 @@
 
   <h1 align="center">Registrar Membresía</h1>
   <br>
-  <!-- Inicia Formulario Marca -->
+  <!-- Inicia Formulario Membresía -->
     <form action="/rVenta/addm" method="post">
       <div align="center">
         <label for="id_Cliente"><b>Cliente:</b></label><br>
         <input list="nombres" name="Cliente_idCliente" type="search" id="id_Cliente" required>
         <datalist id="nombres">
-          <!--% console.log(JSON.stringify(datars)); %-->
           <% if (datac) { %>
             <% for(var i=0; i < datac.length; i++) { %>
               <option value="<%= datac[i].idCliente %>">
@@ -48,7 +49,6 @@
               <% } %>
                 <% } %>
             </datalist>
-        <!--input size="30" type="search" name="Cliente_idCliente" id="id_Cliente" placeholder="ID Cliente" required-->
         <br><br>
         <label><b>Marca: </b></label>
         <br />
@@ -134,6 +134,7 @@
       </div>
       <br />
     </form>
+    <!-- Fin Formulario Membresía -->
   </div>
 
   <script src="/js/folio_membresia.js"></script>

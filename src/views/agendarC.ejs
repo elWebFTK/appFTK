@@ -9,13 +9,15 @@
 
   <link rel="icon" href="/img/ftk-blanco_solo_logo.png">
   <link rel="stylesheet" href="/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
 
 </head>
 
 <body>
   <div>
+    <!-- Navbar -->
     <nav class="color-nav">
       <a href="/">
         <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -24,6 +26,7 @@
         <button role="link" class="btnCerrar">Cerrar Sesión</button>
       </a>
     </nav>
+    <!-- Fin Navbar -->
   </div>
   <br />
   <div>
@@ -33,6 +36,7 @@
   <h1 align="center">Agendar</h1>
   <br />
   <div align="center">
+    <!-- Buscador de cliente por Telefono (busqueda en la BD) -->
     <form action="agendarC/consult/" method="get">
       <input list="nombres" name="Telefono" type="search" id="telefonito" required>
       <datalist id="nombres">
@@ -47,6 +51,7 @@
       </datalist>
       <button class="buttong" type="submit">Buscar</button>
     </form>
+    <!-- Fin Buscador de cliente por Telefono -->
     <br><br>
     <div class="inputs">
       <div>
@@ -105,21 +110,27 @@
         </tr>
         <tr>
           <td id="teodioaquamugre"><input style="width:3.5vw" name="citas" class="chckbox" type="radio"></td>
-          <td><%= data.Folio_membresia %></td>
+          <td>
+            <%= data.Folio_membresia %>
+          </td>
           <td>
             <input style="width:0.5vw" type="text" name="Nombre_m" value="<%= data.idMarca %>" id="Marca" readonly>
             . <%= data.Nombre_m %>
           </td>
-          <td><%= data.Fecha_compra %></td>
+          <td>
+            <%= data.Fecha_compra %>
+          </td>
           <td>
             <div class="tooltip input_tooltip"> <input style="color:black" type="text" name="Nombre_t"
                 value="<%= data.Nombre_t%>" id="Tratamiento" readonly>/<%= data.Nombre_t %>
-              
+
             </div>
             <br>
           </td>
           <td><input type="text" name="Ticket" value="<%= data.Ticket %>" readonly></td>
-          <td><%= data.Notas %></td>
+          <td>
+            <%= data.Notas %>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -158,23 +169,25 @@
     <label for="notas"><b>Notas:</b></label><br>
     <input type="textarea" id="Notas" name="notas">
     <br><br>
-    <button class="buttong"  id="myBtn" type="button" data-target="#modal_cliente">Agendar</button>
+    <button class="buttong" id="myBtn" type="button" data-target="#modal_cliente">Agendar</button>
     <br><br>
   </div>
-  <!-- The Modal -->
+  <!-- Modal Formulario para AGENDAR -->
   <div id="myModal" class="modal">
     <form action="/agendarC/save" method="post">
-    <!-- Modal content -->
-    <div align="center" class="modal-content inputs" id="modal_cliente">
-      <span class="close">&times;</span>
-      <p id="modal-cliente"></p>
-      <button type="submit" class="buttonis">Guardar</button>
-      <button type="button" id="cancel" class="buttonis">Cancelar</button>
-    </div>
-    
-  </form>
+      <!-- Modal content -->
+      <div align="center" class="modal-content inputs" id="modal_cliente">
+        <span class="close">&times;</span>
+        <p id="modal-cliente"></p>
+        <button type="submit" class="buttonis">Guardar</button>
+        <button type="button" id="cancel" class="buttonis">Cancelar</button>
+      </div>
+
+    </form>
   </div>
-  
+  <!-- Fin Modal Formulario para AGENDAR -->
+
+  <!--Datos para formulario agendar, en Modal -->
   <script type="text/javascript">
     $("#myBtn").click(function () {
       var nombre = $("#Nombre").val();
@@ -200,7 +213,7 @@
       $("#modal-cliente").html(str);
     });
   </script>
-  
+  <!-- Fin Datos para formulario agendar, en Modal -->
   <script src="/js/modal.js"></script>
   <script src="/js/back.js"></script>
 

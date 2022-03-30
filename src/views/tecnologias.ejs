@@ -27,7 +27,7 @@
     </div>
     <!--Fin navbar-->
     <div class="todo_marca">
-
+        <!-- Vista para asignar Tecnologias a Sucursale -->
         <div class="row columnas_add">
             <div class="col-8">
                 <div>
@@ -53,7 +53,16 @@
                             <option value="/add_tec" align="center" id="link_tec" style="color: blue;">Agregar nueva tecnología</option>
                         </select>
                         <input style="width:7vw" placeholder="Cantidad" type="number" min="0" name="" id="">
-                        <input style="width:10vw" placeholder="Sucursal" type="text">
+                        <select name="Sucursal" id="sucursal">
+                            <option disabled selected>Seleccione sucursal</option>
+                            <% if (data) { %>
+                              <% for(var i=0; i < data.length; i++) { %>
+                                <option value="<%= data[i].Nombre_s %>">
+                                  <%= data[i].Nombre_s %>
+                                </option>
+                                <% } %>
+                                  <% } %>
+                          </select>
                         <a>Eliminar</a>
                     </div>
                     <br>
@@ -75,6 +84,7 @@
             </div>
         </div>
     </div>
+    <!-- Fin Vista para asignar Tecnologias a Sucursale -->
 </body>
 
 </html>

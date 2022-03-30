@@ -1,3 +1,11 @@
+/*
+JS para Calendario General (Vista para las citas agendadas).
+
+El calendario tiene su propia documentación para las vistas, funciones, vistas, etc.
+
+Mas información en: https://fullcalendar.io.
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('calendar');
   var horarios = calendarEl.getAttribute('data');

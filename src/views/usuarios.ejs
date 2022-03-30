@@ -28,6 +28,7 @@
 
 <body>
     <div>
+        <!-- Navbar -->
         <nav class="color-nav">
             <a href="/">
                 <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -36,6 +37,7 @@
                 <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
             </a>
         </nav>
+        <!-- Fin Navbar -->
     </div>
     <br>
     <div>
@@ -60,7 +62,7 @@
         <br>
         <div class="bckgc">
             <br>
-
+            <!-- Tabla de usuarios -->
             <table style="width:100%">
                 <thead>
                     <tr class="magia">
@@ -137,26 +139,26 @@
                                             <form action="/usuarios/update/<%= data[i].idUsuarios %>" method="POST">
                                                 <div class="form-group">
                                                     <label type="text">Nombre: </label>
-                                                    <input type="text" name="Nombre" value="<%= data[i].Nombre %>"
+                                                    <input type="text" name="Nombre" value="<%= data.Nombre %>"
                                                         placeholder="Nombre" class="form-control" autofocus>
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
                                                     <label type="text">Usuario: </label>
-                                                    <input type="text" name="Usuario" value="<%= data[i].Usuario %>"
+                                                    <input type="text" name="Usuario" value="<%= data.Usuario %>"
                                                         placeholder="Usuario" class="form-control">
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
                                                     <label type="text">Contraseña: </label>
-                                                    <input id="mypsswd" type="password" name="Contraseña" value="<%= data[i].Contraseña %>"
+                                                    <input id="mypsswd" type="password" name="Contraseña" value="<%= data.Contraseña %>"
                                                         placeholder="Contraseña" class="form-control">
                                                         <input id="check_add" type="checkbox" onclick="myFunction()">Ver Contraseña
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
                                                     <label type="text">Teléfono: </label>
-                                                    <input type="text" name="Telefono" value="<%= data[i].Telefono %>"
+                                                    <input type="text" name="Telefono" value="<%= data.Telefono %>"
                                                         placeholder="Telefono" class="form-control">
                                                 </div>
                                         </div>
@@ -174,6 +176,7 @@
                                 <% } %>
                 </tbody>
             </table>
+            <!-- Fin Tabla de usuarios -->
         </div>
         <br>
         <script>

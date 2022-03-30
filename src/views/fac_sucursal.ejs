@@ -17,6 +17,7 @@
 
 <body>
   <div>
+    <!-- Navbar --> 
     <nav class="color-nav">
       <a href="/">
         <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -25,15 +26,17 @@
         <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
       </a>
     </nav>
+    <!-- Fin Navbar --> 
   </div>
   <br />
   <div>
     <button onclick="back();" class="btnMenu">Menú</button>
   </div>
+  <!-- Contenido calendario => Sucursal => Horario_Especialista -->
   <div id='calendar-container'>
     <div style="margin-top:20vw" id='calendar' datas="<%= datas %>"></div>
   </div>
-
+  <!-- Fin Contenido calendario => Sucursal => Horario_Especialista -->
   <script src="/js/back.js"></script>
   <script src="/js/calendar_suc.js"></script>
 </body>

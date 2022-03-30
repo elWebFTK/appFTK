@@ -1,3 +1,11 @@
+/*
+JS para Calendario de Especialista.
+
+El calendario tiene su propia documentación para las vistas, funciones, vistas, etc.
+
+Mas información en: https://fullcalendar.io.
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
   var Calendar = FullCalendar.Calendar;
   var calendarEl = document.getElementById('calendar');
@@ -23,27 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
       timeGridDay: {
         buttonText: 'Día'
       }
-    },
-    eventClick: function () {
-      var modal = document.getElementById("myModal");
-      var span = document.getElementsByClassName("close")[0];
-      var cancelar = document.getElementById("cancel");
-      modal.style.display = "block";
-
-      cancelar.onclick = function () {
-        modal.style.display = "none";
-      };
-
-      span.onclick = function () {
-        modal.style.display = "none";
-      };
-
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-      
     },
     events: JSON.parse(horario_fac),
 

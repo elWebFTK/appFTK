@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="/css/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
 
 </head>
-
+<!-- FORMULARIO PARA ASIGNAR ROL -->
 <body>
     <div>
+       <!-- Navbar --> 
         <nav class="color-nav">
             <a href="/">
                 <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -23,6 +24,7 @@
                 <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
             </a>
         </nav>
+        <!-- Fin Navbar --> 
     </div>
     <div class="todo_marca">
         <div class="row">
@@ -38,6 +40,7 @@
                     <p><b>IMPORTANTE:</b> ID de Usuario solo puede estar asignado a un rol por lo que no podrá asignarse a más
                         de
                         uno por usuario.</p></i>
+                        <!--Formulario asignar Rol-->
                     <form action="/add_rol/add" method="post">
                         <div clas="container">
                             <div class="row">
@@ -45,7 +48,6 @@
                                     <label for="usuarios">Seleccione usuario de la lista:</label><br>
                                     <input list="usuarios" name="Usuarios_idUsuarios" type="search" required>
                                     <datalist id="usuarios">
-                                        <!--% console.log(JSON.stringify(datars)); %-->
                                         <% if (data) { %>
                                             <% for(var i=0; i < data.length; i++) { %>
                                                 <option value="<%= data[i].idUsuarios %>">
@@ -59,7 +61,6 @@
                                     <label>Seleccione rol:</label><br>
                                     <select name="Rol_idRol" required>
                                         <option selected disabled></option>
-                                        <!--% console.log(JSON.stringify(datars)); %-->
                                         <% if (datar) { %>
                                             <% for(var i=0; i < datar.length; i++) { %>
                                                 <option value="<%= datar[i].idRol %>">
@@ -74,13 +75,14 @@
                         <br>
                         <div class="row">
                             <div class="col-12">
-                                <button onclick="myfunction()" class="buttoncito" type="submit">Guardar</button>
+                                <button class="buttoncito" type="submit">Guardar</button>
                                 <a href="/rol_user">
                                     <button class="buttoncito" type="button">Cancelar</button>
                                 </a>
                             </div>
                         </div>
                     </form>
+                    <!-- Fin Formulario asignar Rol -->
                 </div>
             </div>
             <div class="col-4">

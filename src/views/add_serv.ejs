@@ -14,6 +14,7 @@
 
 <body>
     <div>
+        <!-- Navbar --> 
         <nav class="color-nav">
             <a href="/">
                 <input type="image" id="image" alt="Home" src="/img/Logo-FTK-new-blanco.png" width="150px" />
@@ -22,6 +23,7 @@
                 <button role="link" class="btnCerrar" data-target="/">Cerrar Sesión</button>
             </a>
         </nav>
+        <!-- Fin Navbar --> 
     </div>
 
     <div class="todo_marca">
@@ -34,6 +36,7 @@
                 </div>
                 <h1 style="padding-left:10vw">SERVICIO</h1>
                 <br>
+                <!--Formulario agregar Servicio-->
                 <div align="center" class="add_form">
                     <form action="/add_serv/add" method="post">
                         *<input type="text" name="Nombre" placeholder="Nombre" required>
@@ -47,7 +50,6 @@
                         <label for="tecnologia">Tecnología</label><br>
                         <select name="Tecnologia_idTecnologia" type="text" id="tecnologia">
                             <option disabled selected></option>
-                            <!--% console.log(JSON.stringify(datars)); %-->
                             <% if (datas) { %>
                               <% for(var i=0; i < datas.length; i++) { %>
                                 <option value="<%= datas[i].idTecnologia %>"> <%= datas[i].Nombre %> </option>
@@ -57,8 +59,7 @@
                         <br><br>
                         <label for="cabina">Cabina</label><br>
                         <select name="Cabina_idCabina" type="text" id="cabina">
-                            <option disabled selected></option>
-                            <!--% console.log(JSON.stringify(datars)); %-->
+                            <option disabled selected></option>                    
                             <% if (datac) { %>
                               <% for(var i=0; i < datac.length; i++) { %>
                                 <option value="<%= datac[i].idCabina %>"> <%= datac[i].Nombre %> </option>
@@ -82,6 +83,7 @@
                             </a>
                         </div>
                     </form>
+                    <!--Fin Formulario agregar Servicio-->
                 </div>
             </div>
             <div class="col-4">
